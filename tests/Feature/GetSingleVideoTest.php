@@ -9,13 +9,14 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class GetSingleVideoTest extends TestCase
 {
+
+    use RefreshDatabase;
+
     /**
      * A basic feature test example.
      * @test
      * @return void
      */
-    use RefreshDatabase;
-
     public function getSingleVideoById() {
         // Create video
         $video = Video::factory()->create();
