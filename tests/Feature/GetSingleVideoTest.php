@@ -23,6 +23,12 @@ class GetSingleVideoTest extends TestCase
         $result = $this->get(
             sprintf('/api/videos/%s', $video->id));
         // Review result
-        $result->assertJsonFragment($video->toArray());
+        $result->assertExactJson([
+            'id' => $video->id,
+            'title' => $video->title,
+            'description' => $video->description,
+            'video_url' => $video->video_url,
+            'thumbnail' => $video->thumbnail,
+        ]);
     }
 }
